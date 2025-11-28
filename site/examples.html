@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examples | InnovAsia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <h1 class="title">InnovAsia</h1>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Intro</a>
+      <a href="tutorial.html">Tutorial</a>
+      <a href="examples.html">Examples</a>
+      <a href="post-quiz.html">Quiz</a>
+      <a href="references.html">References</a>
+      <a href="about.html">About</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <article class="article">
+      <p class="eyebrow">Examples (Section 5 style)</p>
+      <h1>Chat-style activity prompts</h1>
+      <p class="small">Red = overly broad prompt (don’t do this). Green = specific prompt (do this).</p>
+      <div class="chat-thread">
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Write a scenario.</p>
+        </div>
+        <div class="message left bad">
+          <div class="label"><span class="avatar" style="background:#ff5c35;">B</span><span>ChatGPT</span></div>
+          <p>This prompt is too broad. Specify topic, length, audience, and goal. Example: “Create a 5-minute role-play for college Communication students about resolving a team conflict over presentation roles.”</p>
+        </div>
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Create a 5-minute role-play for college Communication students about resolving a team conflict over presentation roles. Include 3 dialogue beats and one reflection question.</p>
+        </div>
+        <div class="message left good">
+          <div class="label"><span class="avatar" style="background:#2c9c5a;">B</span><span>ChatGPT</span></div>
+          <p>Here’s a concise role-play:<br>Beat 1: Alex wants to handle all slides; Jamie insists on equal split. Tone: tense but polite.<br>Beat 2: Alex admits anxiety about grades; Jamie offers to rehearse together.<br>Beat 3: They agree to co-present: Alex opens, Jamie explains data, both close.<br>Reflection: How did sharing concerns change the outcome? What else could improve fairness?</p>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

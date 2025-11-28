@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Quiz | InnovAsia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <h1 class="title">InnovAsia</h1>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Intro</a>
+      <a href="tutorial.html">Tutorial</a>
+      <a href="examples.html">Examples</a>
+      <a href="post-quiz.html">Quiz</a>
+      <a href="references.html">References</a>
+      <a href="about.html">About</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <article class="article">
+      <p class="eyebrow">Practice Quiz</p>
+      <h1>Interactive Quiz</h1>
+      <p>Answer each question, move forward/back, then submit to see your score, missed items, and explanations.</p>
+      <div class="quiz-shell">
+        <div class="quiz-header">
+          <div class="quiz-progress" id="quiz-progress">Question 1 / 5</div>
+          <div id="quiz-score-preview" class="small"></div>
+        </div>
+        <div class="quiz-card" id="quiz-card">
+          <div class="quiz-question" id="quiz-question"></div>
+          <div class="quiz-options" id="quiz-options"></div>
+          <div class="quiz-feedback" id="quiz-feedback"></div>
+        </div>
+        <div class="quiz-nav">
+          <button class="secondary" id="quiz-prev">← Previous</button>
+          <button id="quiz-next">Next →</button>
+        </div>
+        <div class="quiz-results" id="quiz-results" style="display:none;">
+          <div class="quiz-summary" id="quiz-summary"></div>
+          <div class="results-grid" id="quiz-result-cards"></div>
+          <div class="quiz-review" id="quiz-review"></div>
+          <button class="review-button" id="review-back" style="justify-self:flex-start;">Review questions</button>
+        </div>
+      </div>
+    </article>
+  </main>
+  <script>
+    const quizData = [
+      {
+        q: "When using ChatGPT for class activities, which should you avoid?",
+        options: [
+          "Giving context",
+          "Using specific instructions",
+          "Copying AI output directly without checking",
+          "Asking follow-up prompts"
+        ],
+        answer: 2,
+        why: "Outputs must be reviewed/edited for accuracy and fit; copying directly risks errors and integrity issues."
+      },
+      {
+        q: "Which prompt is better for generating a warm-up?",
+        options: [
+          "Give me something for class",
+          "Write three 5-minute warm-up questions on media bias for college students",
+          "Any questions you want",
+          "Surprise me"
+        ],
+        answer: 1,
+        why: "Specific audience, length, and topic produce usable results faster."
+      },
+      {
+        q: "How should you refine AI outputs?",
+        options: [
+          "Accept the first draft",
+          "Ask for simpler or more advanced versions, and adjust length",
+          "Never change anything",
+          "Add unrelated topics"
+        ],
+        answer: 1,
+        why: "Iterating with clarity (level, length) improves fit for your learners."
+      },
+      {
+        q: "What is a recommended use for ChatGPT in Communication courses?",
+        options: [
+          "Grading final assignments automatically",
+          "Generating in-class discussion scenarios",
+          "Setting institutional policy",
+          "Replacing instructor feedback"
+        ],
+        answer: 1,
+        why: "Activity generation is appropriate; grading/policy decisions must remain human-led."
+      },
+      {
+        q: "Why keep outputs concise for in-class use?",
+        options: [
+          "Longer is always better",
+          "Students prefer walls of text",
+          "Concise prompts and outputs save time and focus attention",
+          "To remove all details"
+        ],
+        answer: 2,
+        why: "Short, focused tasks improve timing and clarity during class."
+      }
+    ];
+
+    let current = 0;
+    let showingResults = false;
+    const responses = new Array(quizData.length).fill(null);
+    const evaluated = new Array(quizData.length).fill(false);
+
+    const progressEl = document.getElementById("quiz-progress");
+    const questionEl = document.getElementById("quiz-question");
+    const optionsEl = document.getElementById("quiz-options");
+    const prevBtn = document.getElementById("quiz-prev");
+    const nextBtn = document.getElementById("quiz-next");
+    const resultsBox = document.getElementById("quiz-results");
+    const summaryEl = document.getElementById("quiz-summary");
+    const reviewEl = document.getElementById("quiz-review");
+    const scorePreview = document.getElementById("quiz-score-preview");
+    const feedbackEl = document.getElementById("quiz-feedback");
+    const quizCard = document.getElementById("quiz-card");
+    const reviewBack = document.getElementById("review-back");
+
+    function renderQuestion() {
+      if (showingResults) {
+        renderResults();
+        return;
+      }
+      const item = quizData[current];
+      progressEl.textContent = `Question ${current + 1} / ${quizData.length}`;
+      questionEl.textContent = item.q;
+      optionsEl.innerHTML = "";
+      feedbackEl.textContent = "";
+      feedbackEl.className = "quiz-feedback";
+
+      const answered = responses[current] !== null;
+      item.options.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        let cls = "quiz-option";
+        if (answered) {
+          if (idx === item.answer) cls += " correct";
+          else if (responses[current] === idx) cls += " incorrect";
+        } else if (responses[current] === idx) {
+          cls += " selected";
+        }
+        btn.className = cls;
+        btn.textContent = opt;
+        btn.onclick = () => {
+          responses[current] = idx;
+          evaluated[current] = true;
+          renderQuestion();
+          showFeedback();
+        };
+        optionsEl.appendChild(btn);
+      });
+      prevBtn.disabled = current === 0;
+      nextBtn.textContent = current === quizData.length - 1 ? "Submit" : "Next →";
+      scorePreview.textContent = responses.filter((r) => r !== null).length
+        ? `${responses.filter((r) => r !== null).length}/${quizData.length} answered`
+        : "";
+      resultsBox.style.display = "none";
+    }
+
+    function renderResults() {
+      const total = quizData.length;
+      let correct = 0;
+      const review = [];
+      quizData.forEach((item, idx) => {
+        const user = responses[idx];
+        const isCorrect = user === item.answer;
+        if (isCorrect) correct++;
+        review.push({
+          idx,
+          isCorrect,
+          user,
+          item,
+        });
+      });
+      const skipped = responses.filter((r) => r === null).length;
+      const accuracy = Math.round((correct / total) * 100);
+
+      // replace question card content with score
+      questionEl.textContent = `You scored ${correct} / ${total}`;
+      optionsEl.innerHTML = "";
+      feedbackEl.textContent = "";
+      feedbackEl.className = "quiz-feedback";
+
+      // build review under score
+      const resultCards = document.getElementById("quiz-result-cards");
+      resultCards.innerHTML = `
+        <div class="result-card">
+          <div class="label">Score</div>
+          <div class="value">${correct}/${total}</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Accuracy</div>
+          <div class="value">${accuracy}%</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Breakdown</div>
+          <div class="value" style="font-size:16px; line-height:1.5;">
+            Correct: ${correct}<br>
+            Incorrect: ${total - correct - skipped}<br>
+            Skipped: ${skipped}
+          </div>
+        </div>
+      `;
+
+      reviewEl.innerHTML = "";
+
+      quizCard.style.display = "grid";
+      resultsBox.style.display = "grid";
+      progressEl.textContent = "Results";
+      scorePreview.textContent = "";
+      nextBtn.style.display = "none";
+      prevBtn.style.display = "none";
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (current === quizData.length - 1) {
+        showingResults = true;
+        renderResults();
+      } else {
+        current = Math.min(current + 1, quizData.length - 1);
+        renderQuestion();
+        if (evaluated[current]) showFeedback();
+      }
+    });
+
+    prevBtn.addEventListener("click", () => {
+      current = Math.max(current - 1, 0);
+      renderQuestion();
+      if (evaluated[current]) showFeedback();
+    });
+
+    reviewBack.addEventListener("click", () => {
+      showingResults = false;
+      current = quizData.length - 1;
+      resultsBox.style.display = "none";
+      nextBtn.style.display = "inline-flex";
+      prevBtn.style.display = "inline-flex";
+      renderQuestion();
+      if (evaluated[current]) showFeedback();
+      quizCard.scrollIntoView({ behavior: "smooth" });
+    });
+
+    function showFeedback() {
+      const item = quizData[current];
+      if (responses[current] === null) {
+        feedbackEl.textContent = "";
+        feedbackEl.className = "quiz-feedback";
+        return;
+      }
+      const correct = responses[current] === item.answer;
+      feedbackEl.textContent = correct
+        ? `Correct. ${item.why}`
+        : `Incorrect. ${item.why}`;
+      feedbackEl.className = "quiz-feedback " + (correct ? "correct" : "incorrect");
+    }
+
+    renderQuestion();
+  </script>
+</body>
+</html>
