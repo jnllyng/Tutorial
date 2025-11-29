@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Examples | InnovAsia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <aside class="sidebar">
     <div class="brand">
@@ -26,28 +28,140 @@
 
   <main class="content">
     <article class="article">
-      <p class="eyebrow">Examples (Section 5 style)</p>
-      <h1>Chat-style activity prompts</h1>
-      <p class="small">Red = overly broad prompt (don’t do this). Green = specific prompt (do this).</p>
+      <p class="eyebrow">Examples</p>
+      <h1>Writing Prompts Examples</h1>
+      <h2>Example 1: Activity Generation</h2>
       <div class="chat-thread">
         <div class="message right">
           <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
-          <p>Write a scenario.</p>
+          <p>Make a warm-up activity for my class.</p>
         </div>
         <div class="message left bad">
           <div class="label"><span class="avatar" style="background:#ff5c35;">B</span><span>ChatGPT</span></div>
-          <p>This prompt is too broad. Specify topic, length, audience, and goal. Example: “Create a 5-minute role-play for college Communication students about resolving a team conflict over presentation roles.”</p>
+          <p>This prompt is too vague because it gives no information about the class, the learning goal, the time
+            required, or the student level, which makes the AI produce random or irrelevant activities.</p>
         </div>
         <div class="message right">
           <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
-          <p>Create a 5-minute role-play for college Communication students about resolving a team conflict over presentation roles. Include 3 dialogue beats and one reflection question.</p>
+          <p>Create a 10-minute warm-up activity for a first-year Communication class about active listening. Include a
+            short scenario, two questions, and a pair discussion task.</p>
         </div>
         <div class="message left good">
           <div class="label"><span class="avatar" style="background:#2c9c5a;">B</span><span>ChatGPT</span></div>
-          <p>Here’s a concise role-play:<br>Beat 1: Alex wants to handle all slides; Jamie insists on equal split. Tone: tense but polite.<br>Beat 2: Alex admits anxiety about grades; Jamie offers to rehearse together.<br>Beat 3: They agree to co-present: Alex opens, Jamie explains data, both close.<br>Reflection: How did sharing concerns change the outcome? What else could improve fairness?</p>
+          <p>This prompt is effective because it provides the class context, identifies the student level, defines the
+            time, and specifies the components needed for the activity so the AI can produce a clear and usable result.
+          </p>
         </div>
+      </div>
+      <br><br>
+      <h2>Example 2: Writing Prompts / Lesson Warm-Ups</h2>
+      <div class="chat-thread">
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Give a writing prompt.</p>
+        </div>
+        <div class="message left bad">
+          <div class="label"><span class="avatar" style="background:#ff5c35;">B</span><span>ChatGPT</span></div>
+          <p>This prompt lacks a topic, purpose, word length, and audience, so the AI cannot generate a meaningful task
+            aligned with the goals of a Communication course.</p>
+        </div>
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Create a writing prompt for a 120–150 word paragraph where students practice persuasive writing about
+            whether smartphones should be allowed in classrooms.</p>
+        </div>
+        <div class="message left good">
+          <div class="label"><span class="avatar" style="background:#2c9c5a;">B</span><span>ChatGPT</span></div>
+          <p>This version works well because it clearly defines the writing purpose, length, and topic, allowing AI to
+            generate an assignment that fits typical classroom expectations.</p>
+        </div>
+      </div>
+      <br><br>
+      <h2>Example 3: Emails or Announcements</h2>
+      <div class="chat-thread">
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Write an email to students.</p>
+        </div>
+        <div class="message left bad">
+          <div class="label"><span class="avatar" style="background:#ff5c35;">B</span><span>ChatGPT</span></div>
+          <p>This prompt provides no purpose, tone, or length, so the AI may produce an email that is irrelevant, overly long, or unsuitable for class communication.</p>
+        </div>
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Write a clear and friendly announcement reminding students about tomorrow’s in-class activity. Keep it under 80 words and use simple language.</p>
+        </div>
+        <div class="message left good">
+          <div class="label"><span class="avatar" style="background:#2c9c5a;">B</span><span>ChatGPT</span></div>
+          <p>This prompt guides the AI by defining the message goal, tone, and length, resulting in a practical draft the instructor can easily refine.</p>
+        </div>
+      </div>
+      <br><br>
+      <h2>Example 4: Brainstorming Class Examples</h2>
+      <div class="chat-thread">
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Give examples of bad communication.</p>
+        </div>
+        <div class="message left bad">
+          <div class="label"><span class="avatar" style="background:#ff5c35;">B</span><span>ChatGPT</span></div>
+          <p>This prompt does not specify the context, number of examples, or intended audience, causing the AI to generate content that may be too random or unrelated to the lesson.</p>
+        </div>
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Provide three real-life workplace examples, each two or three sentences long, that illustrate poor communication for first-year Communication students.</p>
+        </div>
+        <div class="message left good">
+          <div class="label"><span class="avatar" style="background:#2c9c5a;">B</span><span>ChatGPT</span></div>
+          <p>This prompt works because it defines the number of examples, the context, the length, and the student level, allowing the AI to produce relevant and teachable scenarios.</p>
+        </div>
+      </div>
+      <br><br>
+      <h2>Example 5: Summarizing Student Writing</h2>
+      <div class="chat-thread">
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Summarize this essay.</p>
+        </div>
+        <div class="message left bad">
+          <div class="label"><span class="avatar" style="background:#ff5c35;">B</span><span>ChatGPT</span></div>
+          <p>This prompt is unclear about the length, reading level, and purpose of the summary, and it may accidentally lead the AI to evaluate the writing instead of summarizing it.</p>
+        </div>
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Summarize the following student paragraph in two or three simple sentences for quick instructor review. Do not evaluate or grade it.</p>
+        </div>
+        <div class="message left good">
+          <div class="label"><span class="avatar" style="background:#2c9c5a;">B</span><span>ChatGPT</span></div>
+          <p>This version is effective because it establishes the summary length, tone, and purpose, and it explicitly prevents AI from grading or giving inappropriate feedback.</p>
+        </div>
+      </div>
+      <br><br>
+      <h2>Example 6: Creating Quiz Questions</h2>
+      <div class="chat-thread">
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Generate quiz for communication class.</p>
+        </div>
+        <div class="message left bad">
+          <div class="label"><span class="avatar" style="background:#ff5c35;">B</span><span>ChatGPT</span></div>
+          <p>This prompt is too general because it does not define the topic, question type, or quantity, so the AI will create inconsistent or unusable quiz items.</p>
+        </div>
+        <div class="message right">
+          <div class="label"><span class="avatar">A</span><span>Instructor</span></div>
+          <p>Create five multiple-choice questions that check basic understanding of paraphrasing. Each question should include one correct answer and three distractors.</p>
+        </div>
+        <div class="message left good">
+          <div class="label"><span class="avatar" style="background:#2c9c5a;">B</span><span>ChatGPT</span></div>
+          <p>This version is helpful because it clearly defines the topic, format, number of questions, and structure, enabling the AI to produce usable and consistent quiz items.</p>
+        </div>
+      </div>
+      <div class="story-nav">
+        <a class="story-link secondary" href="post-prompts.html">← Previous</a>
+        <a class="story-link" href="post-quiz.html">Next →</a>
       </div>
     </article>
   </main>
 </body>
+
 </html>

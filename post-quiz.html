@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Practice Quiz | InnovAsia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Manrope:wght@400;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <aside class="sidebar">
     <div class="brand">
@@ -26,12 +30,11 @@
 
   <main class="content">
     <article class="article">
-      <p class="eyebrow">Practice Quiz</p>
-      <h1>Interactive Quiz</h1>
-      <p>Answer each question, move forward/back, then submit to see your score, missed items, and explanations.</p>
+      <p class="eyebrow">Quiz</p>
+      <h1>Practice Quiz</h1>
       <div class="quiz-shell">
         <div class="quiz-header">
-          <div class="quiz-progress" id="quiz-progress">Question 1 / 5</div>
+          <div class="quiz-progress" id="quiz-progress">Question 1 / 10</div>
           <div id="quiz-score-preview" class="small"></div>
         </div>
         <div class="quiz-card" id="quiz-card">
@@ -55,60 +58,117 @@
   <script>
     const quizData = [
       {
-        q: "When using ChatGPT for class activities, which should you avoid?",
+        q: "What is the primary purpose of using Generative AI for educators?",
         options: [
-          "Giving context",
-          "Using specific instructions",
-          "Copying AI output directly without checking",
-          "Asking follow-up prompts"
+          "To replace instructor judgment",
+          "To support idea generation and reduce preparation time",
+          "To grade student assignments",
+          "To eliminate lesson planning"
         ],
         answer: 2,
-        why: "Outputs must be reviewed/edited for accuracy and fit; copying directly risks errors and integrity issues."
+        why: "Generative AI is introduced as a support tool, not a replacement for instructors. Its main purpose is to help with idea generation, drafting, and saving time on preparation tasks, while instructors still make all final decisions."
       },
       {
-        q: "Which prompt is better for generating a warm-up?",
+        q: "Which of the following is an appropriate use of AI in the communication classroom?",
         options: [
-          "Give me something for class",
-          "Write three 5-minute warm-up questions on media bias for college students",
-          "Any questions you want",
-          "Surprise me"
+          "Creating warm-up activities and scenarios",
+          "Writing final feedback for students without checking",
+          "Making academic decisions",
+          "Copying outputs directly into class materials"
         ],
         answer: 1,
-        why: "Specific audience, length, and topic produce usable results faster."
+        why: "AI is well suited for generating activities like warm-ups, prompts, and scenarios. Using AI to write unchecked feedback or make academic decisions is specifically listed as something instructors should not do."
       },
       {
-        q: "How should you refine AI outputs?",
+        q: "Which benefit describes how AI supports students with different skill levels?",
         options: [
-          "Accept the first draft",
-          "Ask for simpler or more advanced versions, and adjust length",
-          "Never change anything",
-          "Add unrelated topics"
+          "AI gives identical explanations to all learners",
+          "AI eliminates the need for instructors",
+          "AI provides simplified or advanced explanations as needed",
+          "AI only works for native English speakers"
         ],
-        answer: 1,
-        why: "Iterating with clarity (level, length) improves fit for your learners."
+        answer: 3,
+        why: "AI can adapt explanations to different levels, including simplified versions for students. This personalization is one of the key benefits for diverse classrooms."
       },
       {
-        q: "What is a recommended use for ChatGPT in Communication courses?",
+        q: "Which of the following tasks should instructors not use AI for?",
         options: [
-          "Grading final assignments automatically",
-          "Generating in-class discussion scenarios",
-          "Setting institutional policy",
-          "Replacing instructor feedback"
-        ],
-        answer: 1,
-        why: "Activity generation is appropriate; grading/policy decisions must remain human-led."
-      },
-      {
-        q: "Why keep outputs concise for in-class use?",
-        options: [
-          "Longer is always better",
-          "Students prefer walls of text",
-          "Concise prompts and outputs save time and focus attention",
-          "To remove all details"
+          "Drafting announcements",
+          "Grading final assignments",
+          "Brainstorming examples",
+          "Creating role-play ideas"
         ],
         answer: 2,
-        why: "Short, focused tasks improve timing and clarity during class."
+        why: "In the Do/Don’t section, one of the clear “Don’t” rules is not to use AI to grade final assignments. Drafting announcements, brainstorming examples, and creating role-plays are suggested, appropriate uses."
+      },
+      {
+        q: "Which of the following is part of the CREATE framework?",
+        options: [
+          "Caption, Rephrase, Edit",
+          "Character, Request, Examples",
+          "Concept, Rewrite, Evaluate",
+          "Compose, Reflect, Test"
+        ],
+        answer: 2,
+        why: "Based on Prompt Guide, the CREATE idea includes elements such as defining a role (Character), making a clear Request, and providing Examples to guide the AI’s output."
+      },
+      {
+        q: "Which of the following is the problems of the bad prompt: “Summarize this essay”?",
+        options: [
+          "It does not specify length, purpose, or reading level",
+          "It provides too much detail",
+          "It already includes examples",
+          "It sets clear constraints"
+        ],
+        answer: 1,
+        why: "It fails to define how long the summary should be, why it is being summarized, or at what level. That lack of detail makes the output unpredictable."
+      },
+      {
+        q: "Why is providing constraints helpful when writing prompts for AI?",
+        options: [
+          "Constraints confuse the AI and reduce accuracy",
+          "Constraints prevent the AI from giving detailed responses",
+          "Constraints make prompts unnecessarily long",
+          "Constraints refine tone, length, and difficulty level"
+        ],
+        answer: 4,
+        why: "Constraints help AI understand the appropriate tone, level, and amount of detail, leading to output that better fits the specific needs of a class."
+      },
+      {
+        q: "Which of the following is an inappropriate use of AI according to the tutorial?",
+        options: [
+          "Using AI to grade final assignments",
+          "Using AI to draft emails for instructors to revise",
+          "Using AI to brainstorm class examples",
+          "Using AI to create warm-up activities"
+        ],
+        answer: 1,
+        why: "Grading final assignments involves academic judgment and evaluation, which must remain the instructor’s responsibility. This is specifically listed under the Don't section."
+      },
+      {
+        q: "How does AI help learners who need extra support?",
+        options: [
+          "AI only provides advanced explanations",
+          "AI replaces the need for instructors",
+          "AI can explain topics in simple language and break them into clear steps",
+          "AI gives identical explanations for every student"
+        ],
+        answer: 3,
+        why: "AI can adjust explanations to simpler language, give examples, and break down concepts step-by-step, which supports struggling or ESL learners."
+      },
+      {
+        q: "Why is it important to give AI a clear role (Character) in your prompt?",
+        options: [
+          "It makes the prompt longer but less helpful",
+          "It helps the AI adopt the correct tone, perspective, and expertise",
+          "It limits the AI’s creativity",
+          "It allows AI to respond randomly"
+        ],
+        answer: 2,
+        why: "Assigning a role such as 'Communication instructor' or 'ESL tutor' helps the AI tailor content with the appropriate tone, level, and perspective."
       }
+
+
     ];
 
     let current = 0;
@@ -134,6 +194,7 @@
         renderResults();
         return;
       }
+      quizCard.style.display = "grid";
       const item = quizData[current];
       progressEl.textContent = `Question ${current + 1} / ${quizData.length}`;
       questionEl.textContent = item.q;
@@ -187,13 +248,12 @@
       const skipped = responses.filter((r) => r === null).length;
       const accuracy = Math.round((correct / total) * 100);
 
-      // replace question card content with score
-      questionEl.textContent = `You scored ${correct} / ${total}`;
+      // clear question area; show score in cards only
+      questionEl.textContent = "";
       optionsEl.innerHTML = "";
       feedbackEl.textContent = "";
       feedbackEl.className = "quiz-feedback";
 
-      // build review under score
       const resultCards = document.getElementById("quiz-result-cards");
       resultCards.innerHTML = `
         <div class="result-card">
@@ -216,12 +276,12 @@
 
       reviewEl.innerHTML = "";
 
-      quizCard.style.display = "grid";
       resultsBox.style.display = "grid";
       progressEl.textContent = "Results";
       scorePreview.textContent = "";
       nextBtn.style.display = "none";
       prevBtn.style.display = "none";
+      quizCard.style.display = "none";
     }
 
     nextBtn.addEventListener("click", () => {
@@ -269,4 +329,5 @@
     renderQuestion();
   </script>
 </body>
+
 </html>
