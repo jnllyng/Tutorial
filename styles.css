@@ -438,7 +438,7 @@ a {
 }
 
 .team-card .role {
-  /* font-weight: 700; */
+  font-weight: 700;
   color: #0f62fe;
   margin-bottom: 6px;
   font-size: 13px;
