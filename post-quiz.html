@@ -61,11 +61,11 @@
         q: "What is the primary purpose of using Generative AI for educators?",
         options: [
           "To replace instructor judgment",
-          "To support idea generation and reduce preparation time",
+          "To support idea generation and reduce preparation time", 
           "To grade student assignments",
           "To eliminate lesson planning"
         ],
-        answer: 2,
+        answer: 1, 
         why: "Generative AI is introduced as a support tool, not a replacement for instructors. Its main purpose is to help with idea generation, drafting, and saving time on preparation tasks, while instructors still make all final decisions."
       },
       {
@@ -76,7 +76,7 @@
           "Making academic decisions",
           "Copying outputs directly into class materials"
         ],
-        answer: 1,
+        answer: 0, 
         why: "AI is well suited for generating activities like warm-ups, prompts, and scenarios. Using AI to write unchecked feedback or make academic decisions is specifically listed as something instructors should not do."
       },
       {
@@ -84,43 +84,43 @@
         options: [
           "AI gives identical explanations to all learners",
           "AI eliminates the need for instructors",
-          "AI provides simplified or advanced explanations as needed",
+          "AI provides simplified or advanced explanations as needed", 
           "AI only works for native English speakers"
         ],
-        answer: 3,
+        answer: 2, 
         why: "AI can adapt explanations to different levels, including simplified versions for students. This personalization is one of the key benefits for diverse classrooms."
       },
       {
         q: "Which of the following tasks should instructors not use AI for?",
         options: [
           "Drafting announcements",
-          "Grading final assignments",
+          "Grading final assignments", 
           "Brainstorming examples",
           "Creating role-play ideas"
         ],
-        answer: 2,
+        answer: 1, 
         why: "In the Do/Don’t section, one of the clear “Don’t” rules is not to use AI to grade final assignments. Drafting announcements, brainstorming examples, and creating role-plays are suggested, appropriate uses."
       },
       {
         q: "Which of the following is part of the CREATE framework?",
         options: [
           "Caption, Rephrase, Edit",
-          "Character, Request, Examples",
+          "Character, Request, Examples", 
           "Concept, Rewrite, Evaluate",
           "Compose, Reflect, Test"
         ],
-        answer: 2,
+        answer: 1, 
         why: "Based on Prompt Guide, the CREATE idea includes elements such as defining a role (Character), making a clear Request, and providing Examples to guide the AI’s output."
       },
       {
         q: "Which of the following is the problems of the bad prompt: “Summarize this essay”?",
         options: [
-          "It does not specify length, purpose, or reading level",
+          "It does not specify length, purpose, or reading level", 
           "It provides too much detail",
           "It already includes examples",
           "It sets clear constraints"
         ],
-        answer: 1,
+        answer: 0, 
         why: "It fails to define how long the summary should be, why it is being summarized, or at what level. That lack of detail makes the output unpredictable."
       },
       {
@@ -131,7 +131,7 @@
           "Constraints make prompts unnecessarily long",
           "Constraints refine tone, length, and difficulty level"
         ],
-        answer: 4,
+        answer: 3, 
         why: "Constraints help AI understand the appropriate tone, level, and amount of detail, leading to output that better fits the specific needs of a class."
       },
       {
@@ -142,7 +142,7 @@
           "Using AI to brainstorm class examples",
           "Using AI to create warm-up activities"
         ],
-        answer: 1,
+        answer: 0, 
         why: "Grading final assignments involves academic judgment and evaluation, which must remain the instructor’s responsibility. This is specifically listed under the Don't section."
       },
       {
@@ -150,25 +150,23 @@
         options: [
           "AI only provides advanced explanations",
           "AI replaces the need for instructors",
-          "AI can explain topics in simple language and break them into clear steps",
+          "AI can explain topics in simple language and break them into clear steps", 
           "AI gives identical explanations for every student"
         ],
-        answer: 3,
+        answer: 2, 
         why: "AI can adjust explanations to simpler language, give examples, and break down concepts step-by-step, which supports struggling or ESL learners."
       },
       {
         q: "Why is it important to give AI a clear role (Character) in your prompt?",
         options: [
           "It makes the prompt longer but less helpful",
-          "It helps the AI adopt the correct tone, perspective, and expertise",
+          "It helps the AI adopt the correct tone, perspective, and expertise", 
           "It limits the AI’s creativity",
           "It allows AI to respond randomly"
         ],
-        answer: 2,
+        answer: 1,
         why: "Assigning a role such as 'Communication instructor' or 'ESL tutor' helps the AI tailor content with the appropriate tone, level, and perspective."
       }
-
-
     ];
 
     let current = 0;
@@ -248,7 +246,6 @@
       const skipped = responses.filter((r) => r === null).length;
       const accuracy = Math.round((correct / total) * 100);
 
-      // clear question area; show score in cards only
       questionEl.textContent = "";
       optionsEl.innerHTML = "";
       feedbackEl.textContent = "";
@@ -325,7 +322,6 @@
         : `Incorrect. ${item.why}`;
       feedbackEl.className = "quiz-feedback " + (correct ? "correct" : "incorrect");
     }
-
     renderQuestion();
   </script>
 </body>
